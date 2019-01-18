@@ -1,14 +1,44 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
+function hobbies(hobbie) {
+  return function(name) {
+    switch (hobbie) {
+      case "base":
+        return `Right on!! Slap the base ${name}`;
+        break;
 
+      case "gamer":
+        return `Game on ${name}, game on!`;
+        break;
+
+      default:
+        return `That is an awesome hobbie, ${name}`;
+    }
+  };
+}
+
+let basePlayer = hobbies("base");
+console.log(basePlayer("John"));
+
+let gamePlayer = hobbies("gamer");
+console.log(gamePlayer("Alex"));
+
+let musicPlayer = hobbies("music");
+console.log(musicPlayer("Alfred"));
 
 // ==== Challenge 2: Create a counter function ====
 const counter = () => {
   // Return a function that when invoked increments and returns a counter variable.
+  let counter = 0;
+  return function() {
+    counter++;
+    return counter;
+  };
 };
-// Example usage: const newCounter = counter();
-// newCounter(); // 1
-// newCounter(); // 2
+
+const newCounter = counter();
+console.log(newCounter()); // 1
+console.log(newCounter()); // 2
 
 /* STRETCH PROBLEM, Do not attempt until you have completed all previous tasks for today's project files */
 
